@@ -1,54 +1,46 @@
 #include <iostream>
-#include <math.h>
 using namespace std;
 
-int Prime(int num) {
-
+int isPrime(int num) {
     int i = 2;
 
     do {
         if (num % i == 0) 
             return 0;
         i++;
-    } while (i <= sqrt(num));
-
+    } while (i * i <= num);
+    
     return 1;
 }
 
-void primeTriangle(int rows) {
+int main() {
+    int rows, num = 2, i=1, j;
 
-    int i=1, j, k, num = 2;
+    cout << "Enter the number of rows: ";
+    cin >> rows;
 
     do {
-        j = 1;
+        int spaces = rows - i;
+        
         do {
             cout << " ";
-            j++;
-        } while (j <= rows - i);
+            spaces--;
+        } while (spaces > 0);
 
-        k = 1;
+        j = 0;
         do {
-            cout << num << " ";
-            num++;
+            cout << num << " ";  
+            num++;            
 
-            while (!Prime(num)) 
-                num++;
-                
-            k++;
-        } while (k <= i);
+            while (!isPrime(num)) 
+                num++; 
+            
+            j++;
+        } while (j < i);
 
         cout << endl;
         i++;
 
     } while (i <= rows);
-}
-
-int main() {
-
-    int rows;
-    cout << "Enter the number of rows: ";
-    cin >> rows;
-
-    primeTriangle(rows);
 
 }
