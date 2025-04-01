@@ -20,12 +20,6 @@ public:
         cin >> price;
     }
 
-    void setData(int id, string t, double p) {
-        bookId = id;
-        title = t;
-        price = p;
-    }
-
     void displayData() {
         cout << "\nBook ID: " << bookId << endl;
         cout << "Book Title: " << title << endl;
