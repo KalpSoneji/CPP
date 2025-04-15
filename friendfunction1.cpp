@@ -20,19 +20,17 @@ public:
         ans = num1 + num2;
     }
 
-    void dispsum(){
-        cout << "Result: " << ans << endl;
-    }
-
     friend void add(Calc1 &sum);
+    friend void displayresult(Calc1 &result);
 
 };
 
 void add(Calc1 &addition){
-
     addition.calcsum();
-    // cout << "\nSum of " << addition.num1 << " and " << addition.num2 << " is: " << addition.ans << endl;
+}
 
+void displayresult(Calc1 &result){
+    cout << "\nSum of " << result.num1 << " and " << result.num2 << " is: " << result.ans << endl;
 }
 
 int main(){
@@ -43,7 +41,6 @@ int main(){
     obj1.dispdata();
 
     add(obj1);
-    obj1.dispsum();
+    displayresult(obj1);
 
-    return 0;
 }
